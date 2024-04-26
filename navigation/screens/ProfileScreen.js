@@ -1,6 +1,7 @@
-import { useState } from 'react';
+
 import * as React from 'react';
 import { View, Text, TextInput, StyleSheet } from 'react-native';
+
 
 export default function ProfileScreen({navigation}){
   

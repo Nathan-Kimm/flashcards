@@ -1,10 +1,32 @@
-import * as React from 'react';
-import { View, Text } from 'react-native';
+import React, { useState } from 'react';
+import { View, TextInput, StyleSheet } from 'react-native';
+import styles from '../styles/CardScreenStyle';
 
-export default function CardScreen({navigation}){
-  return(
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text style = {{fontSize: 26, fontWeight: 'bold'}}>Cards!</Text>
-    </View>
+
+
+const CardScreen = ({navigation})=>{
+  const [title, setTitle] = useState('');
+  const [isFocused, setIsFocused] = useState(false);
+
+  const handleFocus = () => {
+    setIsFocused(true);
+  };
+
+  const handleBlur = () => {
+    setIsFocused(false);
+  };
+  return (
+    <View style={styles.container}>
+    <TextInput
+      style={styles.titleInput}
+      placeholder="Subject, Title"
+      value={title}
+      onChangeText={setTitle}
+      onFocus={handleFocus}
+      onBlur={handleBlur}
+    />
+  </View>
   );
 };
+
+export default CardScreen;

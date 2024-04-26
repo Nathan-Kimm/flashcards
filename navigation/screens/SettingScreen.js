@@ -1,12 +1,18 @@
 import * as React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Switch, StyleSheet} from 'react-native';
+import{useColorScheme } from 'nativewind';
 
-export default function SettingScreen({navigation}){
+
+const SettingScreen = ({navigation})=>{
+  const {colorScheme, toggleColorScheme} = useColorScheme();
+  
   return(
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <View style="flex-1 jsutify-center items-center dark:bg-neutral-900">
       <Text
-      onPress = {() => navigation.navigate('')}
-      style = {{fontSize: 26, fontWeight: 'bold'}}>Settings!</Text>
+       style = {{fontSize: 26, fontWeight: 'bold'}}>Dark Mode</Text>
+       <Switch value={colorscheme == 'dark'} onChange = {toggleColorScheme}/>
+      
     </View>
   );
 };
+export default SettingScreen;
